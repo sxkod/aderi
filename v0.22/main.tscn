@@ -1,0 +1,408 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://icons/aderi.png" type="Texture" id=2]
+[ext_resource path="res://icons/open.png" type="Texture" id=3]
+[ext_resource path="res://icons/files.png" type="Texture" id=4]
+[ext_resource path="res://icons/clear.png" type="Texture" id=5]
+[ext_resource path="res://icons/colors.png" type="Texture" id=6]
+[ext_resource path="res://icons/save.png" type="Texture" id=7]
+[ext_resource path="res://icons/text.png" type="Texture" id=8]
+[ext_resource path="res://icons/prev.png" type="Texture" id=9]
+[ext_resource path="res://icons/next.png" type="Texture" id=10]
+[ext_resource path="res://icons/export.png" type="Texture" id=11]
+[ext_resource path="res://icons/lthicklogo.png" type="Texture" id=12]
+[ext_resource path="res://icons/openh.png" type="Texture" id=13]
+[ext_resource path="res://icons/texth.png" type="Texture" id=14]
+[ext_resource path="res://icons/saveh.png" type="Texture" id=15]
+[ext_resource path="res://icons/exporth.png" type="Texture" id=16]
+[ext_resource path="res://icons/nexth.png" type="Texture" id=17]
+[ext_resource path="res://icons/colorsh.png" type="Texture" id=18]
+[ext_resource path="res://icons/prevh.png" type="Texture" id=19]
+[ext_resource path="res://icons/filesh.png" type="Texture" id=20]
+[ext_resource path="res://icons/clearh.png" type="Texture" id=21]
+[ext_resource path="res://icons/debugh.png" type="Texture" id=22]
+[ext_resource path="res://icons/debug.png" type="Texture" id=23]
+[ext_resource path="res://icons/bmxh.png" type="Texture" id=24]
+[ext_resource path="res://icons/bmx.png" type="Texture" id=25]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.00392157, 0.0705882, 1 )
+
+[sub_resource type="Theme" id=2]
+PanelContainer/styles/panel = SubResource( 1 )
+TooltipLabel/colors/font_color = Color( 0.956863, 0.819608, 0.819608, 1 )
+TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 0.1 )
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipLabel/fonts/font = null
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.00784314, 0.0666667, 0.121569, 1 )
+
+[sub_resource type="Theme" id=5]
+ScrollContainer/styles/bg = SubResource( 4 )
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 304.458
+margin_top = 184.038
+margin_right = 804.458
+margin_bottom = 504.038
+rect_min_size = Vector2( 500, 320 )
+window_title = "Open a Directory"
+resizable = true
+mode = 2
+access = 2
+current_dir = "/home"
+current_path = "/home/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pc" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hmain" type="HBoxContainer" parent="pc"]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPicker" type="ColorPicker" parent="pc/hmain"]
+visible = false
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 32.0
+focus_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vcl" type="VBoxContainer" parent="pc/hmain"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="btnsetl" type="HBoxContainer" parent="pc/hmain/vcl"]
+margin_right = 1280.0
+margin_bottom = 32.0
+
+[node name="Open" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_right = 32.0
+margin_bottom = 32.0
+hint_tooltip = "Open a folder of images"
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 13 )
+
+[node name="Files" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+hint_tooltip = "Go back to file browser"
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 20 )
+
+[node name="Save" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+hint_tooltip = "Save Current"
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 15 )
+
+[node name="Exprt" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+hint_tooltip = "Export"
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 16 )
+
+[node name="Clear" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+hint_tooltip = "Clear Current Markings"
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 21 )
+
+[node name="dbg" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 180.0
+margin_right = 212.0
+margin_bottom = 32.0
+hint_tooltip = "Debug Window"
+texture_normal = ExtResource( 23 )
+texture_hover = ExtResource( 22 )
+
+[node name="spc_a" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 216.0
+margin_top = 9.0
+margin_right = 232.0
+margin_bottom = 23.0
+text = "    "
+
+[node name="Color" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 236.0
+margin_right = 268.0
+margin_bottom = 32.0
+hint_tooltip = "Change Color"
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 18 )
+
+[node name="ccol" type="Panel" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 272.0
+margin_right = 304.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+hint_tooltip = "Current Color"
+custom_styles/panel = SubResource( 3 )
+
+[node name="spc_a2" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 308.0
+margin_top = 9.0
+margin_right = 324.0
+margin_bottom = 23.0
+text = "    "
+
+[node name="lthicklogo" type="TextureRect" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 328.0
+margin_right = 360.0
+margin_bottom = 32.0
+texture = ExtResource( 12 )
+
+[node name="lthick" type="HSlider" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 364.0
+margin_right = 492.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
+min_value = 5.0
+max_value = 50.0
+step = 5.0
+value = 5.0
+rounded = true
+
+[node name="spc_b" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 496.0
+margin_top = 9.0
+margin_right = 512.0
+margin_bottom = 23.0
+text = "    "
+
+[node name="Pencil" type="Button" parent="pc/hmain/vcl/btnsetl"]
+visible = false
+margin_left = 146.0
+margin_right = 197.0
+margin_bottom = 20.0
+text = "Pencil"
+
+[node name="Text" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 516.0
+margin_right = 548.0
+margin_bottom = 32.0
+hint_tooltip = "Add a Text Label"
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 14 )
+
+[node name="Panel" type="Button" parent="pc/hmain/vcl/btnsetl"]
+visible = false
+margin_left = 552.0
+margin_right = 599.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 20 )
+text = "Panel"
+
+[node name="sysmsg" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 552.0
+margin_top = 9.0
+margin_right = 1070.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+
+[node name="spc_c" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 1074.0
+margin_top = 9.0
+margin_right = 1090.0
+margin_bottom = 23.0
+text = "    "
+
+[node name="bmxlbl" type="Label" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 1094.0
+margin_top = 9.0
+margin_right = 1168.0
+margin_bottom = 23.0
+text = "Book Marks"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bmxdd" type="OptionButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 1172.0
+margin_right = 1244.0
+margin_bottom = 32.0
+text = "Item 0"
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bmxbtn" type="TextureButton" parent="pc/hmain/vcl/btnsetl"]
+margin_left = 1248.0
+margin_right = 1280.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 25 )
+texture_hover = ExtResource( 24 )
+
+[node name="iscrl" type="ScrollContainer" parent="pc/hmain/vcl"]
+margin_top = 36.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 5 )
+
+[node name="vx" type="VBoxContainer" parent="pc/hmain/vcl/iscrl"]
+margin_right = 1280.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="imgrect" type="TextureRect" parent="pc/hmain/vcl/iscrl/vx"]
+margin_right = 1280.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="iconspc" type="TextureRect" parent="pc/hmain/vcl/iscrl/vx"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vx" type="VBoxContainer" parent="pc/hmain/vcl/iscrl/vx/iconspc"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hnav" type="HBoxContainer" parent="pc/hmain/vcl/iscrl/vx/iconspc/vx"]
+margin_left = 1212.0
+margin_right = 1280.0
+margin_bottom = 32.0
+size_flags_horizontal = 8
+
+[node name="prev" type="TextureButton" parent="pc/hmain/vcl/iscrl/vx/iconspc/vx/hnav"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 19 )
+
+[node name="next" type="TextureButton" parent="pc/hmain/vcl/iscrl/vx/iconspc/vx/hnav"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 17 )
+
+[node name="hx" type="HBoxContainer" parent="pc/hmain/vcl/iscrl/vx/iconspc/vx"]
+visible = false
+margin_right = 870.0
+size_flags_horizontal = 3
+
+[node name="bx" type="TextureButton" parent="pc/hmain/vcl/iscrl/vx/iconspc/vx/hx"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 80 )
+expand = true
+
+[node name="dbg" type="TextEdit" parent="pc/hmain/vcl/iscrl/vx"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vcr" type="VBoxContainer" parent="pc/hmain"]
+visible = false
+margin_left = 874.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 3
+
+[node name="btnsetr" type="HBoxContainer" parent="pc/hmain/vcr"]
+margin_right = 150.0
+size_flags_horizontal = 3
+
+[node name="fbscrl" type="ScrollContainer" parent="pc/hmain/vcr"]
+margin_top = 4.0
+margin_right = 150.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="fbx" type="ItemList" parent="pc/hmain/vcr/fbscrl"]
+margin_right = 150.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="undoscrl" type="ScrollContainer" parent="pc/hmain/vcr"]
+margin_top = 304.0
+margin_right = 150.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="undox" type="ItemList" parent="pc/hmain/vcr/undoscrl"]
+margin_right = 150.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
+[connection signal="gui_input" from="pc/hmain/ColorPicker" to="." method="_on_ColorPicker_gui_input"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Open" to="." method="_on_Open_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Files" to="." method="_on_Files_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Exprt" to="." method="_on_Exprt_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/dbg" to="." method="_on_dbg_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Color" to="." method="_on_Color_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Text" to="." method="_on_Text_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/Panel" to="." method="_on_Panel_pressed"]
+[connection signal="item_selected" from="pc/hmain/vcl/btnsetl/bmxdd" to="." method="_on_bmxdd_item_selected"]
+[connection signal="pressed" from="pc/hmain/vcl/btnsetl/bmxbtn" to="." method="_on_bmxbtn_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/iscrl/vx/iconspc/vx/hnav/prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="pc/hmain/vcl/iscrl/vx/iconspc/vx/hnav/next" to="." method="_on_next_pressed"]
+[connection signal="item_selected" from="pc/hmain/vcr/fbscrl/fbx" to="." method="_on_fbx_item_selected"]
