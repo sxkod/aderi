@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://lbox.gd" type="Script" id=1]
+[ext_resource path="res://icons/clearh.png" type="Texture" id=2]
+[ext_resource path="res://icons/clear.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0.0980392, 0.0117647, 0.0117647, 0.6 )
+shadow_size = 4
+shadow_offset = Vector2( 5, 5 )
+
+[sub_resource type="Theme" id=2]
+ScrollContainer/styles/bg = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id=4]
+ItemList/colors/font_color = Color( 0.63, 0.63, 0.63, 1 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0.1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = null
+ItemList/styles/bg = SubResource( 3 )
+ItemList/styles/bg_focus = null
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/selected = null
+ItemList/styles/selected_focus = null
+
+[node name="lbox" type="Node2D"]
+show_behind_parent = true
+script = ExtResource( 1 )
+
+[node name="vx" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hx" type="HBoxContainer" parent="vx"]
+margin_right = 400.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="vx/hx"]
+margin_top = 9.0
+margin_right = 364.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Book Marks"
+
+[node name="closebtn" type="TextureButton" parent="vx/hx"]
+margin_left = 368.0
+margin_right = 400.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="sc" type="ScrollContainer" parent="vx"]
+margin_top = 36.0
+margin_right = 400.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lx" type="ItemList" parent="vx/sc"]
+margin_right = 400.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 4 )
+max_columns = 2
+
+[node name="OptionButton" type="OptionButton" parent="vx"]
+margin_top = 83.0
+margin_right = 400.0
+margin_bottom = 103.0
+text = "Item 0"
+items = [ "Item 0", null, false, 0, null, "Item 1", null, false, 1, null ]
+selected = 0
+[connection signal="pressed" from="vx/hx/closebtn" to="." method="_on_closebtn_pressed"]
+[connection signal="item_selected" from="vx/sc/lx" to="." method="_on_lx_item_selected"]
+[connection signal="item_selected" from="vx/OptionButton" to="." method="_on_OptionButton_item_selected"]
